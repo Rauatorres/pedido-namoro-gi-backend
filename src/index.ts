@@ -1,10 +1,15 @@
 import Fastify from "fastify";
 import niveisController from "./niveis/niveis.controller";
+import cors from "@fastify/cors";
 
 const port = 3000;
 
 const fastify = Fastify({
   logger: true,
+});
+
+fastify.register(cors, {
+  origin: ["*"],
 });
 
 fastify.get("/", () => {
